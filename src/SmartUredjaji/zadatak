@@ -1,0 +1,37 @@
+Zadatak: Sustav za upravljanje pametnim uređajima u kući
+
+Cilj:
+Izraditi Java program koji modelira različite pametne uređaje u kući pomoću apstraktnih klasa i sučelja.
+Program treba omogućiti uređajima da izvode akcije, prikazuju svoj status i da ih se može ažurirati na daljinu.
+
+Zahtjevi:
+
+Apstraktna Klasa:
+Kreirajte apstraktnu klasu pod nazivom SmartDevice s:
+
+Dvije apstraktne metode:
+performAction()
+displayStatus()
+
+Jednom konkretno implementiranom metodom:
+updateFirmware(String version) koja ažurira verziju firmvera uređaja.
+
+Sučelje:
+Kreirajte sučelje pod nazivom RemoteControllable s metodom:
+
+remoteControl(String command) koja omogućuje daljinsko upravljanje uređajem.
+
+Konkretne Klase:
+Kreirajte barem tri konkretne klase koje proširuju klasu SmartDevice i implementiraju sučelje RemoteControllable:
+
+++SmartLight (može se uključiti/isključiti, podešavati svjetlinu)
+++SmartThermostat (može postaviti temperaturu, prikazati trenutnu temperaturu)
+++SmartSpeaker (može puštati glazbu, podešavati glasnoću)
+
+Main Klasa:
+
+U Main klasi:
+
+Kreirajte objekte svakog pametnog uređaja.
+++Izvršite akcije, prikažite njihov status i daljinski ih kontrolirajte.
+Ažurirajte firmver svakog uređaja i prikažite ažurirani status.
