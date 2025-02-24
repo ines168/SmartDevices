@@ -16,12 +16,19 @@ public class SmartLight extends SmartDevice implements RemoteControllable{
         if (svjetlina > 100 || svjetlina < 0 ) {
             this.svjetlina = 50;
         } else {
-            this.svjetlina = svjetlina;};
+            this.svjetlina = svjetlina;
+        }
     }
 
     @Override
     public void remoteControl(String command) {
-        System.out.println("Remote control - ne znam što radi ovdje :)");
+        switch (command) {
+            case "upali" -> this.jeUkljuceno = true;
+            case "ugasi" -> this.jeUkljuceno = false;
+            case "pojačaj" -> this.svjetlina += 10;
+            case "smanji" -> this.svjetlina -= 10;
+            default -> System.out.println("Nisam razumio. SmartLight ostaje isti.");
+        }
     }
 
     @Override
@@ -35,7 +42,7 @@ public class SmartLight extends SmartDevice implements RemoteControllable{
             } else if (izbor == 2) {
                 System.out.println("Unesi svjetlinu (0-100 %): ");
                 int svjetlina = sc.nextInt();
-                if (svjetlina >=0 && svjetlina<=100) {
+                if (svjetlina >0 && svjetlina<=100) {
                     jeUkljuceno = true;
                     this.svjetlina = svjetlina;
                 } else {
@@ -51,6 +58,6 @@ public class SmartLight extends SmartDevice implements RemoteControllable{
 
     @Override
     public String displayStatus() {
-        return naziv + " - " + (jeUkljuceno ? "ON Svjetlina:" + svjetlina + "%" : "OFF");
+        return naziv + " - " + (jeUkljuceno ? "ON Svjetlina: " + svjetlina + "%" : "OFF");
     }
 }
